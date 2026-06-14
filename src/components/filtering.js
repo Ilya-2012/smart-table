@@ -13,15 +13,15 @@ export function initFiltering(elements) {
   };
 
   const applyFiltering = (query, state, action) => {
-    if (action && action.name == "clear" && action.element) {
-      const parent = action.element.parentElement;
+    if (action && action.name == "clear") {
+      const parent = action.parentElement;
       if (parent) {
         const input = parent.querySelector("input");
         if (input) {
           input.value = "";
         }
       }
-      const fieldName = action.element.dataset.field;
+      const fieldName = action.dataset.field;
       if (fieldName && fieldName in state) {
         state[fieldName] = "";
       }

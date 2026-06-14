@@ -43,10 +43,6 @@ async function render(action) {
   query = applyFiltering(query, state, action);
   query = applySearching(query, state, action);
   query = applySorting(query, state, action);
-  //result = applySorting(result, state, action);
-  //result = applyPagination(result, state, action);
-  //result = applySearch(result, state, action)
-  //result = applyFiltering(result, state, action);
   const { total, items } = await api.getRecords(query);
   updatePagination(total, query);
   sampleTable.render(items);
